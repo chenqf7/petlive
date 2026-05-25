@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "宠生",
+    "slug": "petlive-chongsheng",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "backgroundColor": "#F7F4EA"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": false
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#F7F4EA"
+      }
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
+
