@@ -1,32 +1,29 @@
+import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { PhoneFrame } from './src/components/PhoneFrame';
+import { BehaviorInsightsScreen } from './src/screens/BehaviorInsightsScreen';
+import { CreatePetScreen } from './src/screens/CreatePetScreen';
+import { InteractionScreen } from './src/screens/InteractionScreen';
+import { MemoryDetailScreen } from './src/screens/MemoryDetailScreen';
+import { PetRoomScreen } from './src/screens/PetRoomScreen';
+import { PhotoUploadScreen } from './src/screens/PhotoUploadScreen';
+import { VideoUploadScreen } from './src/screens/VideoUploadScreen';
+import type { ScreenName } from './src/types/prototype';
 
 export default function App() {
+  const [screen, setScreen] = useState<ScreenName>('pet-room');
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>宠生</Text>
-      <Text style={styles.subtitle}>手机 App 高保真原型启动中</Text>
+    <PhoneFrame>
+      {screen === 'pet-room' && <PetRoomScreen navigate={setScreen} />}
+      {screen === 'create-pet' && <CreatePetScreen navigate={setScreen} />}
+      {screen === 'photo-upload' && <PhotoUploadScreen navigate={setScreen} />}
+      {screen === 'video-upload' && <VideoUploadScreen navigate={setScreen} />}
+      {screen === 'behavior-insights' && <BehaviorInsightsScreen navigate={setScreen} />}
+      {screen === 'interaction' && <InteractionScreen navigate={setScreen} />}
+      {screen === 'memory-detail' && <MemoryDetailScreen navigate={setScreen} />}
       <StatusBar style="dark" />
-    </View>
+    </PhoneFrame>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#F7F4EA',
-    padding: 24
-  },
-  title: {
-    color: '#1C2A28',
-    fontSize: 34,
-    fontWeight: '800'
-  },
-  subtitle: {
-    color: '#5C6F69',
-    fontSize: 16,
-    marginTop: 8
-  }
-});
